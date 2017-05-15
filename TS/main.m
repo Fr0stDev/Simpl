@@ -78,7 +78,7 @@ static NSString* difference;
 
 + (void)print:(NSArray*)args;
 + (void)exit;
-+ (void)audit:(NSArray*)args;
++ (void)file:(NSArray*)args;
 
 @end
 
