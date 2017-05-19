@@ -17,7 +17,7 @@ Simple Programming Language written in Obj-C for my Programming Languages class
  * Takes in user input
  * Takes 1 argument: prompt
  * Example Usage: input please enter your name:
- * Saves input in variable "output"
+ * Saves input in variable "In"
  
  ### whatis :
  * Prints the value of a given variable
