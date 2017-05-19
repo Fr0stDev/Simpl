@@ -801,7 +801,7 @@ static NSString* _difference;
 + (void)help {
     
     //[TSMain println:@"\n"];
-    [TSMain println:@"Please visit http://gmoran.me/TrumpSpeak for API Documentation."];
+    [TSMain println:@"Please visit https://github.com/guillermo-moran/Simpl/blob/master/README.md for API Documentation."];
     //[TSMain println:@"\n"];
 }
 
