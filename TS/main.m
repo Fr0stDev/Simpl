@@ -12,9 +12,9 @@ static BOOL canExit;
 static int repeatCount = 1;
 
 // Global Variables
-static NSString* output;
-static NSString* sum;
-static NSString* difference;
+static NSString* _input;
+static NSString* _sum;
+static NSString* _difference;
 //static NSString* quotient;
 //static NSString* product;
 
@@ -355,7 +355,7 @@ static NSString* difference;
         NSString* s = [string stringByReplacingOccurrencesOfString:@"\n" withString:@""];
         
         
-        if ([TSUtils startsWithUppercase:s] && (![s isEqualToString:@"Sum"]) && (![s isEqualToString:@"Difference"]) && (![s isEqualToString:@"Out"]) && (![function isEqualToString:@"func"]) && (![function isEqualToString:@"var"]) && (![function isEqualToString:@"whatis"]) && (![function isEqualToString:@"repealAndReplace"])) {
+        if ([TSUtils startsWithUppercase:s] && (![s isEqualToString:@"Sum"]) && (![s isEqualToString:@"Difference"]) && (![s isEqualToString:@"In"]) && (![function isEqualToString:@"func"]) && (![function isEqualToString:@"var"]) && (![function isEqualToString:@"whatis"]) && (![function isEqualToString:@"repealAndReplace"])) {
             
             TSVariableStorage* varStorage = [TSVariableStorage sharedInstance];
             
@@ -370,21 +370,21 @@ static NSString* difference;
             
         }
         
-        else if ([s isEqualToString:@"Out"]) {
-            if (output) {
-                [functionArgs addObject:output];
+        else if ([s isEqualToString:@"In"]) {
+            if (_input) {
+                [functionArgs addObject:_input];
             }
         }
         
         else if ([s isEqualToString:@"Sum"]) {
-            if (sum) {
-                [functionArgs addObject:sum];
+            if (_sum) {
+                [functionArgs addObject:_sum];
             }
         }
         
         else if ([s isEqualToString:@"Difference"]) {
-            if (difference) {
-                [functionArgs addObject:difference];
+            if (_difference) {
+                [functionArgs addObject:_difference];
             }
         }
         
@@ -564,13 +564,13 @@ static NSString* difference;
     
     const char *prompt = [argument cStringUsingEncoding:NSASCIIStringEncoding];
     
-    char input[200];
+    char user_input[200];
     printf("%s : ", prompt);
-    fgets(input, 200, stdin);
+    fgets(user_input, 200, stdin);
     
-    NSString *stringToSave = [[NSString alloc] initWithUTF8String:input];
+    NSString *stringToSave = [[NSString alloc] initWithUTF8String:user_input];
     
-    output = stringToSave;
+    _input = stringToSave;
 }
 
 /*
@@ -633,8 +633,8 @@ static NSString* difference;
     
     NSString* var = [args[0] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     
-    if ([var isEqualToString:@"Out"]) {
-        [TSMain println:@"Variable name 'Out' cannot be used."];
+    if ([var isEqualToString:@"In"]) {
+        [TSMain println:@"Variable name 'In' cannot be used."];
         return;
     }
     
@@ -760,7 +760,7 @@ static NSString* difference;
         
     }
     
-    sum = [NSString stringWithFormat:@"%.02f", result];
+    _sum = [NSString stringWithFormat:@"%.02f", result];
     //[TSMain println:[NSString stringWithFormat:@"%.02f", result]];
 }
 
@@ -789,7 +789,7 @@ static NSString* difference;
         }
         
     }
-    difference = [NSString stringWithFormat:@"%.02f", result];
+    _difference = [NSString stringWithFormat:@"%.02f", result];
 }
 
 /*
