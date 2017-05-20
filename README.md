@@ -49,7 +49,7 @@ Simple Programming Language written in Obj-C for my Programming Languages class
  ### subtract : 
  * Subtracts all given numbers and returns a value
  * Takes unlimited arguments
- * Example usage: add 1 2 3 4
+ * Example usage: subtract 4 3 2 1
  * Stores result in "Difference" variable
  
  ### help :
