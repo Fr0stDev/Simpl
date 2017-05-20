@@ -30,6 +30,7 @@ Simple Programming Language written in Obj-C for my Programming Languages class
  * Example usage: loop 5
  
  ### var :
+ * Variables defined by strings starting with capital letters
  * Sets the value of a new variable
  * Takes 2 arguments: variable name, value
  * Example usage: var X 2
