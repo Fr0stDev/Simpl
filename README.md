@@ -1,6 +1,10 @@
 # Simpl
 Simple Programming Language written in Obj-C for my Programming Languages class 
 
+## Comments
+
+### Comments in .simpl files are prefixed by "#!"
+
 ## Functions
 
 ### func : 
