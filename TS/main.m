@@ -601,6 +601,8 @@ static NSString* _difference;
  * Example usage: repeat 5
  */
 
+
+
 + (void)loop:(NSArray*)args {
     if (args.count < 1) {
         [TSMain println:@"Not enough arguments."];
@@ -884,7 +886,9 @@ static NSString* _difference;
     
     for (NSString* functionCall in reversed) {
         
-        if (![functionCall isEqualToString:@""]) {
+        // Don't add empty strings and comments to the stack when reading from a file
+        if (![functionCall isEqualToString:@""] && (![functionCall hasPrefix:@"#!"])) {
+            
             [functionStack push:functionCall];
         }
     }
